@@ -12,10 +12,7 @@ const {
 const { notes } = require('../../data/notes');
 
 router.get('/notes', (req, res) => {
-  let results = notes;
-  if (req.query) {
-    results = filterByQuery(req.query, results);
-  }
+  let results = JSON.parse(fs.readFileSync('db/db.json'));
   res.json(results);
 });
 
@@ -31,7 +28,6 @@ router.get('/notes/:id', (req, res) => {
 router.post('/notes', (req, res) => {
   // set id based on what the next index of the array will be
   let results = JSON.parse(fs.readFileSync('db/db.json'));
-  res.json(results);
 
   let newNote = {
     title: req.body.title,
@@ -44,16 +40,7 @@ router.post('/notes', (req, res) => {
     path.join(__dirname, '../../db/db.json'),
     JSON.stringify(results)
   );
-  res.json(newNote);
-
-  // req.body.id = notes.length.toString();
-
-  // if (!validateNotes(req.body)) {
-  //   res.status(400).send('The note is not properly formatted.');
-  // } else {
-  //   const notes = createNewNotes(req.body, notes);
-  //   res.json(notes);
-  // }
+  res.json(results);
 });
 
 router.delete('./notes/:id', (req, res) => {
