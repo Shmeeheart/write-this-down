@@ -3,12 +3,7 @@ const fs = require('fs');
 const generateUniqueId = require('generate-unique-id');
 const path = require('path');
 
-const {
-  filterByQuery,
-  findById,
-  createNewNotes,
-  validateNotes,
-} = require('../../lib/notes');
+const { findById } = require('../../lib/notes');
 const { notes } = require('../../data/notes');
 
 router.get('/notes', (req, res) => {
