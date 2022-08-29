@@ -12,6 +12,6 @@ Usage: Javascript, HTML, CSS
 
 Github: https://github.com/Shmeeheart/write-this-down
 
-Application URL:
+Application URL Heroku: https://write-this-down.herokuapp.com/
 
 Contributors: Jennifer Goodwin (Shmeeheart)
